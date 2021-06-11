@@ -3,3 +3,5 @@
 
 <!-- ![Nico's Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=nico-zck) -->
 <!-- ![Nico's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=nico-zck) -->
+
+![Metrics](https://github.com/nico-zck/README/blob/main/metrics.svg)
