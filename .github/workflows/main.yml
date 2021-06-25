@@ -2,13 +2,13 @@
 
 name: Updating Github Metrics
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   schedule:
     - cron: "0 */8 * * *"
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
 
       # See https://github.com/lowlighter/metrics for documentation
-      - name: Persornal Metrics
+      - name: 🦑 Personal metrics
         if: ${{ success() || failure() }}
         uses: lowlighter/metrics@latest
         with:
@@ -35,39 +35,72 @@ jobs:
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           config_timezone: Asia/Shanghai
 
-          base: header, repositories, metadata
+          base: header, repositories
           repositories: 100
           repositories_affiliations: owner, collaborator, organization_member
-          commits_authoring: nico-zck, zhangchenkai, nico, Nico, NICO-LAB\zhang
           plugin_lines: yes
-          plugin_traffic: yes
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
-
           plugin_languages: yes
           plugin_languages_ignored: html, css
           plugin_languages_skipped: nico-zck/nico-zck
           plugin_languages_details: lines, percentage
           plugin_languages_sections: most-used, recently-used
-          plugin_languages_limit: 8
+          plugin_languages_limit: 4
           plugin_languages_indepth: true
-          plugin_languages_recent_load: 500
+          plugin_languages_recent_load: 300
           plugin_languages_recent_days: 90
-          
           plugin_notable: yes
           plugin_notable_repositories: yes
-
           plugin_topics: yes
           plugin_topics_mode: starred
-          
+          commits_authoring: nico-zck, zhangchenkai, nico, Nico, NICO-LAB\zhang
           config_order: base.header, base.repositories, isocalendar, languages, notable, topics
 
-#       # Runs a single command using the runners shell
-#       - name: Run a one-line script
-#         run: echo Hello, world!
+      - name: 🦑 Personal metrics2
+        if: ${{ success() || failure() }}
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics2.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          config_timezone: Asia/Shanghai
 
-#       # Runs a set of commands using the runners shell
-#       - name: Run a multi-line script
-#         run: |
-#           echo Add other actions to build,
-#           echo test, and deploy your project.
+          base: header, repositories
+          repositories: 100
+          repositories_affiliations: owner, collaborator, organization_member
+          plugin_lines: yes
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          plugin_languages: yes
+          plugin_languages_ignored: html, css
+          plugin_languages_skipped: nico-zck/nico-zck
+          plugin_languages_details: lines, percentage
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_limit: 6
+          plugin_languages_indepth: true
+          plugin_languages_recent_load: 600
+          plugin_languages_recent_days: 180
+          plugin_notable: yes
+          plugin_notable_repositories: yes
+          plugin_topics: yes
+          plugin_topics_mode: starred
+          commits_authoring: nico-zck, zhangchenkai, nico, Nico, NICO-LAB\zhang
+          config_order: base.header, base.repositories, isocalendar, languages, notable, topics
+
+      # ======================================================================================
+      # 🧮 Repositories traffic
+
+      # Display number of repositories views (this is part of base content "repositories" section, so you need to enable it)
+      # Note that a "repo" scope is required
+      - name: 🧮 Traffic plugin
+        if: ${{ success() || failure() }}
+        uses: lowlighter/metrics@master
+        with:
+          filename: metrics.plugin.traffic.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: repositories
+          plugin_traffic: yes
+          plugins_errors_fatal: ${{ github.repository == 'lowlighter/lowlighter' }}
+          output_action: pull-request
+          delay: 120
