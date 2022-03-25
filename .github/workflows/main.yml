@@ -5,7 +5,7 @@ name: Updating Github Metrics
 # Controls when the action will run.
 on:
   schedule:
-    - cron: "0 */8 * * *"
+    - cron: "0 8 */2 * *"
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [main]
