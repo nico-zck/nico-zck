@@ -5,5 +5,5 @@
 <!-- ![Nico's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=nico-zck) -->
 
 ![Metrics](https://github.com/nico-zck/README/blob/main/metrics.svg)
-![Metrics](https://github.com/nico-zck/README/blob/main/metrics.languages.most.svg)
-![Metrics](https://github.com/nico-zck/README/blob/main/metrics.languages.recent.svg)
+<!-- ![Metrics](https://github.com/nico-zck/README/blob/main/metrics.languages.most.svg) -->
+<!-- ![Metrics](https://github.com/nico-zck/README/blob/main/metrics.languages.recent.svg) -->
