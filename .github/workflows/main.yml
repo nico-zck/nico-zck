@@ -59,7 +59,7 @@ jobs:
           plugin_languages_analysis_timeout: 60
           plugin_languages_analysis_timeout_repositories: 15
           plugin_languages_recent_days: 365
-          plugin_languages_recent_load: 500
+          plugin_languages_recent_load: 1000
 
           plugin_topics: yes
           plugin_topics_limit: 15
