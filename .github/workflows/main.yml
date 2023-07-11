@@ -50,7 +50,7 @@ jobs:
           plugin_languages_recent_categories: markup, programming
           plugin_languages_threshold: 0%
 
-          plugin_languages_indepth: yes
+#           plugin_languages_indepth: yes
           plugin_languages_indepth_custom: nico-zck/Defect-Detection@baseline-v1.0, nico-zck/Defect-Detection@baseline-v2.0
           plugin_languages_sections: most-used, recently-used
           plugin_languages_skipped: nico-zck/nico-zck
